@@ -6,8 +6,8 @@ public class GrenadeThrow : MonoBehaviour
 {
     public GameObject HG;
     public int Grenades;
-    public float speed;
-    public float distance;
+//    public float speed;
+//    public float distance;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F) && Grenades > 0)

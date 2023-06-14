@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GrenadeScripts : MonoBehaviour
@@ -13,11 +14,12 @@ public class GrenadeScripts : MonoBehaviour
         StartCoroutine(Explosion());
         StartCoroutine(Delete());
     }
-    private void OnTriggerEnter2D(Collider2D other) 
+
+    private void OnTriggerStay2D(Collider2D other) 
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("Нанесен урон по игроку"); // скрипт урона 
+            PlayerHealthPoint.hp -= 20;
             Destroy(gameObject);
         }
         else if(other.gameObject.tag == "Enemy")
@@ -35,7 +37,7 @@ public class GrenadeScripts : MonoBehaviour
     }
     private IEnumerator Delete()
     {
-        yield return new WaitForSeconds(5.01f);
+        yield return new WaitForSeconds(5.1f);
         Destroy(gameObject);
     }
 }

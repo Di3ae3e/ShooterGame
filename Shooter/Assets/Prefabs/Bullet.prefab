@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a3b593499fe9348bce8214c13f73df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   distance: 0
   damage: 10
   bloodSplash: {fileID: 0}
