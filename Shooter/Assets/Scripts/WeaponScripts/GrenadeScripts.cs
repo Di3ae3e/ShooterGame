@@ -6,6 +6,7 @@ using UnityEngine;
 public class GrenadeScripts : MonoBehaviour
 {
     public GameObject Effect;
+    public GameObject SmokeEffect;
     public int explosionPower;
     //public float explosionTime;
 
@@ -34,6 +35,8 @@ public class GrenadeScripts : MonoBehaviour
         GetComponent<CircleCollider2D>().enabled = true;
         Effect.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         Instantiate(Effect);
+        SmokeEffect.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Instantiate(SmokeEffect);
     }
     private IEnumerator Delete()
     {

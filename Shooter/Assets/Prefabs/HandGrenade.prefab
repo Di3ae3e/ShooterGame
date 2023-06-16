@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7825070156459586319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4856062, y: -0.085397944, z: 0}
+  m_LocalPosition: {x: 1.5876641, y: -0.12541091, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -115,4 +115,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 1335332028218982943, guid: 750d2c54acfbf474fa67eff4d6749afb, type: 3}
+  SmokeEffect: {fileID: 2897897480206703194, guid: b88c9103abd5142498f8f562a19dfce7, type: 3}
   explosionPower: 0
