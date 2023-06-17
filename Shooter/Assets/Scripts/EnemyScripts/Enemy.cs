@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int Health ;
-    public GameObject destroyEffect;
-    
-    void Update()
+    public float maxHp;
+    [HideInInspector] static public float hp;
+
+    private void Start()
     {
-        if (Health <=0)
-        {
-            Instantiate(destroyEffect,transform.position, Quaternion.identity);
-            
-            Destroy(gameObject);
-        }
+        hp = maxHp;
     }
 
-    public void TakeDamage(int damage)
+    void Update()
     {
-        Health -= damage;
+        if(hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

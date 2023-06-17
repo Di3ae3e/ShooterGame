@@ -8,6 +8,8 @@ public class GrenadeScripts : MonoBehaviour
     public GameObject Effect;
     public GameObject SmokeEffect;
     public int explosionPower;
+    public float damage = 20f;
+
     //public float explosionTime;
 
     private void Start() 
@@ -16,19 +18,20 @@ public class GrenadeScripts : MonoBehaviour
         StartCoroutine(Delete());
     }
 
-    private void OnTriggerStay2D(Collider2D other) 
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            PlayerHealthPoint.hp -= 20;
+            PlayerHealthPoint.hp -= damage;
             Destroy(gameObject);
         }
-        else if(other.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Нанесен урон по врагу"); // тут нужно вставить скрипт урона 
+            Enemy.hp -= damage;
             Destroy(gameObject);
         }
     }
+
     private IEnumerator Explosion()
     {
         yield return new WaitForSeconds(5f);

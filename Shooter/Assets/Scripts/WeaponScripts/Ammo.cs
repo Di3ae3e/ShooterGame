@@ -6,7 +6,7 @@ public class Ammo : MonoBehaviour
 {
      public float speed;
      public float distance;
-     public int damage;
+     public float damage = 2f;
      public GameObject bloodSplash;
      public GameObject destroyEffect;
      public LayerMask layerMask;
@@ -19,7 +19,7 @@ public class Ammo : MonoBehaviour
          {
              if (other.collider.CompareTag("Enemy"))
              {
-                other.collider.GetComponent<Enemy>().TakeDamage(damage);
+                Enemy.hp -= damage;
                 Destroy(gameObject);
              }
 
