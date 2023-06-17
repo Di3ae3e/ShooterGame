@@ -18,7 +18,6 @@ public class PlayerMove : MonoBehaviour
     {
         Walk();
     }
-
     void Walk()
     {
         moveVector.x = Input.GetAxis("Vertical");
