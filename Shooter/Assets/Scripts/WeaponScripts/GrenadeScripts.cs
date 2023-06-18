@@ -25,7 +25,7 @@ public class GrenadeScripts : MonoBehaviour
             PlayerHealthPoint.hp -= damage;
             Destroy(gameObject);
         }
-        if(other.gameObject.tag == "Enemy")
+        else if(other.gameObject.tag == "Enemy")
         {
             Enemy.hp -= damage;
             Destroy(gameObject);
