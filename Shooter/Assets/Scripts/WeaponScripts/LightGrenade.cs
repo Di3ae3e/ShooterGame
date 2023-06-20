@@ -6,11 +6,11 @@ public class LightGrenade : MonoBehaviour
 {
     void Start()
     {
-        StartCoroutine(Light());
+        StartCoroutine(LightDestroy());
     }
-    private IEnumerator Light()
+    private IEnumerator LightDestroy()
     {
-        yield return new WaitForSeconds(4.9f);
-        GetComponent<Light>().enabled = true;
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gameObject);
     }
 }

@@ -7,15 +7,18 @@ public class GrenadeScripts : MonoBehaviour
 {
     public GameObject Effect;
     public GameObject SmokeEffect;
+    public GameObject lighting;
+    public GameObject burn;
     public int explosionPower;
     public float damage = 20f;
-
+    
     //public float explosionTime;
 
     private void Start() 
     {
         StartCoroutine(Explosion());
         StartCoroutine(Delete());
+        StartCoroutine(Light());
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -31,6 +34,13 @@ public class GrenadeScripts : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    private IEnumerator Light()
+    {
+        yield return new WaitForSeconds(4.9f);
+        lighting.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Instantiate(lighting);
+    }
 
     private IEnumerator Explosion()
     {
@@ -40,6 +50,8 @@ public class GrenadeScripts : MonoBehaviour
         Instantiate(Effect);
         SmokeEffect.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         Instantiate(SmokeEffect);
+        burn.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Instantiate(burn);
     }
     private IEnumerator Delete()
     {
