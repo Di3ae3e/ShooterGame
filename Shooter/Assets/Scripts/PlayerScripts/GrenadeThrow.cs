@@ -6,6 +6,7 @@ using TMPro;
 public class GrenadeThrow : MonoBehaviour
 {
     public GameObject HG;
+    public Transform HGTransform;
     public int Grenades;
     public TMP_Text counter;
 //    public float speed;
@@ -16,7 +17,7 @@ public class GrenadeThrow : MonoBehaviour
         {
             HG.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             Grenades--;
-            Instantiate(HG);
+            Instantiate(HG, HGTransform.position, transform.rotation);
         }
         counter.text = " " + Grenades;
     }
