@@ -5,19 +5,18 @@ using TMPro;
 
 public class GrenadeThrow : MonoBehaviour
 {
+    public Transform projectileTransform;
     public GameObject HG;
-    public Transform HGTransform;
     public int Grenades;
     public TMP_Text counter;
-//    public float speed;
-//    public float distance;
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F) && Grenades > 0)
         {
-            HG.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            //HG.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            Instantiate(HG, projectileTransform.position, transform.rotation);
             Grenades--;
-            Instantiate(HG, HGTransform.position, transform.rotation);
         }
         counter.text = " " + Grenades;
     }

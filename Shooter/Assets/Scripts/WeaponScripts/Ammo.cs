@@ -20,15 +20,15 @@ public class Ammo : MonoBehaviour
              if (other.collider.CompareTag("Enemy"))
              {
                 Enemy.hp -= damage;
+                Instantiate(bloodSplash, transform.position, Quaternion.identity);
                 Destroy(gameObject);
              }
-
-             if (other.collider.CompareTag("Wall"))
+             else if (other.collider.CompareTag("Wall"))
              {
                  Destroy(gameObject);
              }
          }
-         transform.Translate(Vector2.up * speed * Time.deltaTime);
+        transform.Translate(Vector2.up * speed * Time.deltaTime);
      }
 
      void Destroy()

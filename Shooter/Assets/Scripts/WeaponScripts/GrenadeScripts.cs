@@ -9,16 +9,33 @@ public class GrenadeScripts : MonoBehaviour
     public GameObject SmokeEffect;
     public GameObject lighting;
     public GameObject burn;
+    public Transform player;
+    public float distance;
+    public float speed;
     public int explosionPower;
     public float damage = 20f;
-    
-    //public float explosionTime;
 
     private void Start() 
     {
         StartCoroutine(Explosion());
         StartCoroutine(Delete());
         StartCoroutine(Light());
+    }
+    void Update() 
+    {
+        RaycastHit2D other = Physics2D.Raycast(transform.position, transform.up, distance);
+            if(other.collider !=null)
+            {
+                if (other.collider.CompareTag("Enemy"))
+                {
+                    speed = 0f;
+                }
+                else if (other.collider.CompareTag("Wall"))
+                {
+                    speed = 0f;
+                }
+         }
+        transform.Translate(Vector2.up * speed * Time.deltaTime);    
     }
 
     private void OnTriggerStay2D(Collider2D other)
