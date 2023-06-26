@@ -9,7 +9,6 @@ public class GrenadeScripts : MonoBehaviour
     public GameObject SmokeEffect;
     public GameObject lighting;
     public GameObject burn;
-    public Transform player;
     public float distance;
     public float speed;
     public int explosionPower;

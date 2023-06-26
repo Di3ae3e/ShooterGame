@@ -120,7 +120,6 @@ MonoBehaviour:
   SmokeEffect: {fileID: 2897897480206703194, guid: b88c9103abd5142498f8f562a19dfce7, type: 3}
   lighting: {fileID: 1842147872925581574, guid: 233dd375dc8c0b04ebec106b87018bfa, type: 3}
   burn: {fileID: 2148293448710497443, guid: 7fa1ecf6520121d4bb2f3eced9412699, type: 3}
-  player: {fileID: 0}
   distance: 2
   speed: 10
   explosionPower: 0
