@@ -9,7 +9,7 @@ public class WeaponShoot : MonoBehaviour
      public GameObject projectile;
      public Transform projectileTransform;
      public TMP_Text ammunition;
-     public Image reloadImage;
+     public TMP_Text ReloadText;
      public int mag;
      private int ammo;
      public float StartTimeFire;
@@ -43,22 +43,19 @@ public class WeaponShoot : MonoBehaviour
          }
          if(Input.GetKey(KeyCode.R))
          {
+            ammunition.enabled = false;
+            ReloadText.enabled = true;
             ammo = 0;
             StartCoroutine(Reloading());
          }
-         if(ammo == 0)
-         {
-            reloadImage.enabled = true;
-         }
-         else
-         {
-            reloadImage.enabled = false;
-         }
+         
          ammunition.text = mag + "/" + ammo;
      }
      private IEnumerator Reloading()
      {
         yield return new WaitForSeconds(3f);
         ammo = mag;
+        ReloadText.enabled = false;
+        ammunition.enabled = true;
      }
 }
