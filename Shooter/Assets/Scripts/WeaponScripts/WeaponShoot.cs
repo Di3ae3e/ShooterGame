@@ -15,14 +15,13 @@ public class WeaponShoot : MonoBehaviour
      public float StartTimeFire;
      private float TimeFire;
      
-
-     private AudioSource audioSource;
+     private AudioSource ReloadingSound;
 
      void Start()
      {  
-         ammo = mag;
-         TimeFire = StartTimeFire;
-         audioSource = GetComponent<AudioSource>();
+        ammo = mag;
+        TimeFire = StartTimeFire;
+        ReloadingSound = GetComponent<AudioSource>();
      }
 
      void Update()
@@ -31,29 +30,30 @@ public class WeaponShoot : MonoBehaviour
          {
             if(TimeFire <= 0)
             {
-                 Instantiate(projectile, projectileTransform.position, transform.rotation);
-                 // audioSource.Play();
-                 TimeFire = StartTimeFire;
-                 ammo -- ;
+                Instantiate(projectile, projectileTransform.position, transform.rotation);
+                // audioSource.Play();
+                TimeFire = StartTimeFire;
+                ammo -- ;
             } 
-             else
-             {
-                 TimeFire -=Time.deltaTime;
-             }
+            else
+            {
+                TimeFire -=Time.deltaTime;
+            }
          }
-         if(Input.GetKey(KeyCode.R))
+         if(Input.GetKeyDown(KeyCode.R))
          {
             ammunition.enabled = false;
             ReloadText.enabled = true;
             ammo = 0;
             StartCoroutine(Reloading());
+            ReloadingSound.Play();
          }
          
          ammunition.text = mag + "/" + ammo;
      }
      private IEnumerator Reloading()
      {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         ammo = mag;
         ReloadText.enabled = false;
         ammunition.enabled = true;
