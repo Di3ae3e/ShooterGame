@@ -16,12 +16,14 @@ public class WeaponShoot : MonoBehaviour
      private float TimeFire;
      
      private AudioSource ReloadingSound;
+     public AudioSource ShootSFX;
 
      void Start()
      {  
         ammo = mag;
         TimeFire = StartTimeFire;
         ReloadingSound = GetComponent<AudioSource>();
+        //ShootSFX = GetComponent<AudioSource>();
      }
 
      void Update()
@@ -31,7 +33,7 @@ public class WeaponShoot : MonoBehaviour
             if(TimeFire <= 0)
             {
                 Instantiate(projectile, projectileTransform.position, transform.rotation);
-                // audioSource.Play();
+                ShootSFX.Play();
                 TimeFire = StartTimeFire;
                 ammo -- ;
             } 

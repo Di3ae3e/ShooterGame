@@ -9,6 +9,7 @@ public class GrenadeScripts : MonoBehaviour
     public GameObject SmokeEffect;
     public GameObject lighting;
     public GameObject burn;
+    public GameObject AudioEmpty;
     public float distance;
     public float speed;
     public int explosionPower;
@@ -68,6 +69,8 @@ public class GrenadeScripts : MonoBehaviour
         Instantiate(SmokeEffect);
         burn.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         Instantiate(burn);
+        AudioEmpty.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Instantiate(AudioEmpty);
     }
     private IEnumerator Delete()
     {
